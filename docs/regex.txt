@@ -1,0 +1,4 @@
+Nombre: Validators.pattern('^[a-zA-ZÁÉÍÓÚáéíóúñÑ]+$')
+lastName: Validators.pattern('^[a-zA-ZÁÉÍÓÚáéíóúñÑ]+$')
+email: pattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}')
+passaword :pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d]{8,}$')

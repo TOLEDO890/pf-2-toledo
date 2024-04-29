@@ -1,0 +1,26 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer>
+    <mat-list>
+      <a mat-list-item>Profesores</a>
+      <a mat-list-item>Heroes</a>
+      <a mat-list-item>Clases</a>
+    </mat-list>
+  </mat-drawer>
+  
+  <div class="example-sidenav-content">
+    <mat-toolbar color="accent">
+      <button type="button" mat-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span appDirectives>ACADEMIA UA</span>
+    </mat-toolbar>
+    <main >
+      <hr />
+      <h2   class="text-center" >Administracion</h2>
+      <app-alumnos/>
+     
+    </main>
+
+   
+  </div>
+</mat-drawer-container>
