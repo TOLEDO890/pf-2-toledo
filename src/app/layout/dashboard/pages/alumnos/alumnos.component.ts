@@ -56,28 +56,11 @@ export class AlumnosComponent {
      Don: 'mitad frio/mitad caliente',
      Edad:17,
     },
+   
+    
+    
     {
       id:4,
-      Nombre:'Yagi' ,
-     Apellido:'Toshinori',
-     Clase: '1A',
-     NombreDeHeroe:' All Might ',
-     role:'profesor',
-     Don: 'one for all',
-     Edad:55,
-    },
-    {
-      id:5,
-      Nombre:'Shota' ,
-     Apellido:'Aizawa',
-     Clase: '1A',
-     NombreDeHeroe:'Eraser Head',
-     role:'profesor',
-     Don: 'Borrado',
-     Edad:31,
-    },
-    {
-      id:6,
       Nombre:'Tenya' ,
      Apellido:'Iida',
      Clase: '1A',
@@ -86,18 +69,9 @@ export class AlumnosComponent {
      Don: 'Engine',
      Edad:17,
     },
+    
     {
-      id:7,
-      Nombre:'Hizashi' ,
-     Apellido:'Yamada',
-     Clase: '1A',
-     NombreDeHeroe:'Present Mic',
-     role:'profesor',
-     Don: 'Voice',
-     Edad:31,
-    },
-    {
-      id:8,
+      id:5,
       Nombre:'Fumikage',
      Apellido:'Tokoyami',
      Clase: '1A',
@@ -107,7 +81,7 @@ export class AlumnosComponent {
      Edad:17,
     },
     {
-      id:9,
+      id:6,
       Nombre:'Tsuyu' ,
      Apellido:'Asui',
      Clase: '1A',
@@ -117,7 +91,7 @@ export class AlumnosComponent {
      Edad:16,
     },
     {
-      id:10,
+      id:7,
       Nombre:'Minoru' ,
      Apellido:'Mineta',
      Clase: '1A',
@@ -127,7 +101,7 @@ export class AlumnosComponent {
      Edad:17,
     },
     {
-      id:11,
+      id:8,
       Nombre:'Rikido' ,
      Apellido:'Sato',
      Clase: '1A',
@@ -137,7 +111,7 @@ export class AlumnosComponent {
      Edad:17,
     },
     {
-      id:12,
+      id:9,
       Nombre:'Momo' ,
      Apellido:'Yaoyorozu',
      Clase: '1A',

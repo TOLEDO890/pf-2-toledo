@@ -1,7 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DashboardComponent } from './dashboard.component';
 
-const routes: Routes = [];
+const routes: Routes = [ 
+{path:'clases',
+ loadChildren:() => import ('./pages/clases/clases.module').then((m)=>m.ClasesModule)
+},
+{path:'cursos',
+ loadChildren:() => import ('./pages/cursos/cursos.module').then((m)=>m.CursosModule)
+},
+{path:'alumnos',
+ loadChildren:() => import ('./pages/alumnos/alumnos.module').then((m)=>m.AlumnosModule)
+}];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

@@ -1,9 +1,9 @@
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer>
     <mat-list>
-      <a mat-list-item>Profesores</a>
-      <a mat-list-item>Heroes</a>
-      <a mat-list-item>Clases</a>
+      <a routerLink="cursos" mat-list-item>Cursos</a>
+      <a routerLink="alumnos" mat-list-item>Alumnos</a>
+      <a routerLink="clases" mat-list-item>Clases</a>
     </mat-list>
   </mat-drawer>
   
@@ -17,7 +17,7 @@
     <main >
       <hr />
       <h2   class="text-center" >Administracion</h2>
-      <app-alumnos/>
+      <router-outlet/>
      
     </main>
 
