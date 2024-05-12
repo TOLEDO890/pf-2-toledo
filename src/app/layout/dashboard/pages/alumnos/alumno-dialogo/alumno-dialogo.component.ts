@@ -50,12 +50,6 @@ export class AlumnoDialogoComponent {
   get EdadControl() {
     return this.userForm.get('Edad')
   }
-  get DonControl (){
-    return this.userForm.get('Don')
-  }
-  get NombreDeHeroeControl(){
-    return this.userForm.get('NombreDeHeroe')
-  }
 
   onSave(): void {
     if (this.userForm.invalid) {

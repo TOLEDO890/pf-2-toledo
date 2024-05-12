@@ -1,0 +1,149 @@
+{
+  "users": [
+    
+       {
+        "id": "1",
+        "Nombre": "izuku",
+        "Apellido": "midoriya",
+        "Clase": "1A",
+        "role": "alumno",
+        "Edad": 17
+      },
+       {
+        "id": "2",
+        "Nombre": "Katsuki",
+        "Apellido": "Bakugo",
+        "Clase": "1A",      
+        "role": "alumno",
+        "Edad": 17
+      },
+       {
+        "id": "3",
+        "Nombre": "Shoto",
+        "Apellido": "Todoroki",
+        "Clase": "1A",
+        "role": "alumno",
+        "Edad": 17
+      },
+      {
+        "id": "4",
+        "Nombre": "Tenya",
+        "Apellido": "Iida",
+        "Clase": "1A",
+        "role": "alumno",
+        "Edad": 17
+      },
+       {
+        "id": "5",
+        "Nombre": "Fumikage",
+        "Apellido": "Tokoyami",
+        "Clase": "1A",
+        "role": "alumno",
+        "Edad": 17
+      },
+       {
+        "id": "6",
+        "Nombre": "Tsuyu",
+        "Apellido": "Asui",
+        "Clase": "1A",
+        "role": "alumno",
+        "Edad": 16
+      },
+       {
+        "id": "7",
+        "Nombre": "Minoru",
+        "Apellido": "Mineta",
+        "Clase": "1A",
+        "role": "alumno",
+        "Edad": 17
+      },
+       {
+        "id": "8",
+        "Nombre": "Rikido",
+        "Apellido": "Sato",
+        "Clase": "1A",
+        "role": "alumno",
+        "Edad": 17
+      },
+       {
+        "id": "9",
+        "Nombre": "Momo",
+        "Apellido": "Yaoyorozu",
+        "Clase": "1A",
+        "role": "alumno",
+        "Edad": 17
+      }
+    
+    
+  ],
+  "courses": [
+    
+        {
+            "id": "1",
+            "nombre": "Curso de Matemáticas e Ingeniería",
+            "descripcion": "Aprende matemáticas básicas y conceptos de ingeniería",
+            "precio": 250,
+            "materias": ["Álgebra", "Cálculo", "Fundamentos de Ingeniería"]
+        },
+        {
+            "id": "2",
+            "nombre": "Curso de Inglés y Programación en Python",
+            "descripcion": "Mejora tu inglés y aprende a programar en Python",
+            "precio": 250,
+            "materias": ["Gramática", "Vocabulario", "Introducción a Python", "Programación Orientada a Objetos"]
+        }
+    
+    
+  ],
+  "class": [
+    {
+        "id": "1",
+        "courseid": "1",
+        "nombre": "Clase de Álgebra",
+        "descripcion": "Clase que cubre los fundamentos del álgebra",
+        "materias": ["Álgebra"]
+    },
+    {
+        "id": "2",
+        "courseid": "1",
+        "nombre": "Clase de Cálculo",
+        "descripcion": "Clase que cubre los principios básicos del cálculo",
+        "materias": ["Cálculo"]
+    },
+    {
+        "id": "3",
+        "courseid": "1",
+        "nombre": "Clase de Fundamentos de Ingeniería",
+        "descripcion": "Clase que cubre los fundamentos de la ingeniería",
+        "materias": ["Fundamentos de Ingeniería"]
+    },
+    {
+        "id": "4",
+        "courseid": "2",
+        "nombre": "Clase de Gramática",
+        "descripcion": "Clase que cubre los fundamentos de la gramática en inglés",
+        "materias": ["Gramática"]
+    },
+    {
+        "id": "5",
+        "courseid": "2",
+        "nombre": "Clase de Vocabulario",
+        "descripcion": "Clase que enseña vocabulario en inglés",
+        "materias": ["Vocabulario"]
+    },
+    {
+        "id": "6",
+        "courseid": "2",
+        "nombre": "Clase de Introducción a Python",
+        "descripcion": "Clase introductoria a la programación en Python",
+        "materias": ["Introducción a Python"]
+    },
+    {
+        "id": "7",
+        "courseid": "2",
+        "nombre": "Clase de Programación Orientada a Objetos",
+        "descripcion": "Clase que cubre los principios de la programación orientada a objetos",
+        "materias": ["Programación Orientada a Objetos"]
+    }
+  ]
+}

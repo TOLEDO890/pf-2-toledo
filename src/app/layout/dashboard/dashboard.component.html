@@ -1,5 +1,5 @@
 <mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer>
+  <mat-drawer class="color" #drawer>
     <mat-list>
       <a routerLink="cursos" mat-list-item>Cursos</a>
       <a routerLink="alumnos" mat-list-item>Alumnos</a>
@@ -7,17 +7,17 @@
     </mat-list>
   </mat-drawer>
   
-  <div class="example-sidenav-content">
-    <mat-toolbar color="accent">
+  <div class="example-sidenav-content  color-bg " >
+    <mat-toolbar class="text-black color" >
       <button type="button" mat-button (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
       <span appDirectives>ACADEMIA UA</span>
     </mat-toolbar>
-    <main >
+    <main class="">
       <hr />
-      <h2   class="text-center" >Administracion</h2>
-      <router-outlet/>
+      <h2   class="text-center text-white" >Administracion</h2>
+      <router-outlet />
      
     </main>
 

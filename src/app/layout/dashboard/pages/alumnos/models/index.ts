@@ -5,10 +5,6 @@ export interface IUser {
   Clase: string;
 Nombre: string;
 Apellido:string;
-NombreDeHeroe:string;
 role: UserRole;
-Don:string;
 Edad:number;
-
-  
 }
