@@ -1,32 +1,34 @@
 <div class="row backgroud1 w-100 h-100">
     <div class="col-12 d-flex justify-content-center p-3">
-        <mat-card class="backgroud2  card col-12">
-            <mat-card-header>
-                <mat-card-title >
-                    Academia U.A
-                </mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <div class="d-flex justify-content-center row ">
-                    <div class="m-3  d-flex justify-content-center">
-                        <mat-form-field appearance="outline" >
-                          <mat-label class="forms-color">email</mat-label>
-                          <input type="email" matInput  placeholder="ingresa tu email">
-                        </mat-form-field>
-                      </div>
-                      <div class="m-3 d-flex justify-content-center">
-                        <mat-form-field  appearance="outline" >
-                          <mat-label class="forms-color">contraseña</mat-label>
-                          <input type="password" class="" matInput placeholder="ingresa tu contraseña">  
-                        </mat-form-field>
-                      </div>
-                </div>
-            </mat-card-content>
+      <mat-card class="backgroud2  card col-12">
+        <mat-card-header>
+          <mat-card-title>
+            Academia U.A
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="d-flex justify-content-center row">
+              <div class="m-3 d-flex justify-content-center">
+                <mat-form-field appearance="outline">
+                  <mat-label class="forms-color">email</mat-label>
+                  <input type="email" formControlName="email" matInput placeholder="Ingresa tu email">
+                </mat-form-field>
+              </div>
+              <div class="m-3 d-flex justify-content-center">
+                <mat-form-field appearance="outline">
+                  <mat-label class="forms-color">contraseña</mat-label>
+                  <input type="password" formControlName="password" matInput placeholder="Ingresa tu contraseña">
+                </mat-form-field>
+              </div>
+            </div>
             <mat-card-actions>
-                <button routerLink="dashboard" class="m-3" mat-button  >iniciar sesion</button>
-                <button class="m-3" mat-button >registrarse</button>
-
+              <button type="submit" mat-button>Iniciar sesión</button>
+              <button type="button" class="m-3" mat-button>Registrarse</button>
             </mat-card-actions>
-        </mat-card>
+          </form>
+        </mat-card-content>
+      </mat-card>
     </div>
-</div>
+  </div>
+  

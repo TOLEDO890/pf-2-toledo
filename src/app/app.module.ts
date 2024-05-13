@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { DashboardModule } from './layout/dashboard/dashboard.module';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
 
 
 @NgModule({
@@ -17,7 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     DashboardModule,
-   SharedModule,HttpClientModule
+   SharedModule,HttpClientModule, StoreModule.forRoot({}, {})
   ],
   providers: [
     provideAnimationsAsync()

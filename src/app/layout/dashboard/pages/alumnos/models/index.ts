@@ -7,4 +7,7 @@ Nombre: string;
 Apellido:string;
 role: UserRole;
 Edad:number;
+email:string;
+password:string;
+token:string;
 }
