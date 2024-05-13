@@ -15,7 +15,7 @@ loadChildren: () => import('./layout/auth/auth.module').then((m) => m.AuthModule
 },
 {
   path: '**',
-  redirectTo: '/dashboard',
+  redirectTo: 'auth/login',
 },];
 
 @NgModule({

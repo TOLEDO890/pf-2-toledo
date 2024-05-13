@@ -7,6 +7,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { DashboardModule } from './layout/dashboard/dashboard.module';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { StoreModule } from '@ngrx/store';
     BrowserModule,
     AppRoutingModule,
     DashboardModule,
-   SharedModule,HttpClientModule, StoreModule.forRoot({}, {})
+   SharedModule,HttpClientModule, StoreModule.forRoot({}, {}), EffectsModule.forRoot([])
   ],
   providers: [
     provideAnimationsAsync()
