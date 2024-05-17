@@ -16,9 +16,7 @@ export class AlumnosComponent {
   displayedColumns: string[] = [
     'Clase',
     'NombreCompleto',
-    'NombreDeHeroe',
     'role',
-    'Don',
     'Edad', 
     'id',
     'actions',

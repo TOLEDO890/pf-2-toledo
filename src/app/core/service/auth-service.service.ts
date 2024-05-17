@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment.prod';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -6,10 +7,12 @@ import { Observable, of } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AppState } from '../store/reducers/app.state';
 import * as AuthActions from '../store/actions/auth.actions';
+import { IUser } from '../../layout/dashboard/pages/alumnos/models';
+import { tap } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = environment.apiURL;
 
   constructor(
     private router: Router,
@@ -18,10 +21,10 @@ export class AuthService {
   ) {}
 
   login(email: string, password: string): Observable<boolean> {
-    return this.httpClient.get<any>(`${this.apiUrl}/users?email=${email}&password=${password}`).pipe(
-      map(response => {
-        if (response && response.length > 0) {
-          const user = response[0];
+    return this.httpClient.get<IUser[]>(`${this.apiUrl}/users?email=${email}&password=${password}`).pipe(
+      map(users => {
+        if (users && users.length > 0) {
+          const user = users[0];
           this.store.dispatch(AuthActions.login({ user }));
           localStorage.setItem('token', user.token);
           return true;
@@ -37,7 +40,7 @@ export class AuthService {
 
   logout(): void {
     this.store.dispatch(AuthActions.logout());
-    localStorage.removeItem('token');
+    
     this.router.navigate(['auth', 'login']);
   }
 
@@ -47,21 +50,27 @@ export class AuthService {
       this.logout();
       return of(false);
     }
-    return this.httpClient
-      .get<any>(`${this.apiUrl}/verifyToken`, { headers: { 'Authorization': `Bearer ${token}` } })
+
+    return this.httpClient.get<IUser>(`${this.apiUrl}/users?token`, { headers: {  } })
       .pipe(
-        map((response) => {
-          if (response && response.token) {
-            const user = response;
+        map((user) => {
+          if (user && user.token) {
             this.store.dispatch(AuthActions.login({ user }));
+            // No es necesario volver a guardar el token en localStorage aquí
             return true;
           } else {
-            this.logout();
             return false;
+          }
+        }),
+        tap((loggedIn) => {
+          if (!loggedIn) {
+            this.logout();
+            this.router.navigate(['/login']);
           }
         }),
         catchError(() => {
           this.logout();
+          this.router.navigate(['/login']);
           return of(false);
         })
       );
