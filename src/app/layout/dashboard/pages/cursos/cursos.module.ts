@@ -5,6 +5,10 @@ import { CursoDialogoComponent } from './cursos-dialog/cursos-dialog.component';
 import { SharedModule } from '../../../../shared/shared.module';
 import { FormGroup } from '@angular/forms';
 import { CursosRoutingModule } from './cursos-routing.module';
+import { EffectsModule } from '@ngrx/effects';
+import { CursoEffects } from './store/curso.effects';
+import { cursoFeature } from './store/curso.reducer';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -14,7 +18,9 @@ import { CursosRoutingModule } from './cursos-routing.module';
   imports: [
     CommonModule,
     SharedModule,
-    CursosRoutingModule 
+    CursosRoutingModule,
+    EffectsModule.forFeature([CursoEffects]) ,
+    StoreModule.forFeature(cursoFeature)
    
   ]
 })

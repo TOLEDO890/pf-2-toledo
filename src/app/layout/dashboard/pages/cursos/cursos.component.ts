@@ -3,6 +3,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { CursoDialogoComponent } from './cursos-dialog/cursos-dialog.component';
 import { ICurso } from './models/index';
 import { CursoService } from './curso.service';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { selectorloadcursos } from './store/curso.selectors';
+import { CursoActions } from './store/curso.actions';
 
 @Component({
   selector: 'app-cursos',
@@ -10,13 +14,17 @@ import { CursoService } from './curso.service';
   styleUrls: ['./cursos.component.scss']
 })
 export class CursosComponent implements OnInit {
-  cursos: ICurso[] =[]; 
+  cursos$:Observable <ICurso[]> ; 
   displayedColumns: string[] = ['id', 'nombre', 'precio', 'descripcion', 'materias', 'actions'];
 
-  constructor(private dialog: MatDialog, private cursoService: CursoService) { }
+  constructor(private dialog: MatDialog, private cursoService: CursoService ,private Store :Store) {
+    this.cursos$ =this.Store.select(selectorloadcursos)
+   }
 
   ngOnInit(): void {
-    this.cursos = this.cursoService.getCursos();
+    this.Store.dispatch(
+      CursoActions.loadCursos()
+        )
   }
  
 
@@ -36,7 +44,7 @@ export class CursosComponent implements OnInit {
           this.cursoService.agregarCurso(result);
         }
        
-        this.cursos = this.cursoService.getCursos();
+        this.cursos$ = this.cursoService.getCursos();
       }
     });
   }
@@ -46,7 +54,7 @@ export class CursosComponent implements OnInit {
     
       this.cursoService.eliminarCurso(id);
  
-      this.cursos = this.cursoService.getCursos();
+      this.cursos$ = this.cursoService.getCursos();
     }
   }
 }

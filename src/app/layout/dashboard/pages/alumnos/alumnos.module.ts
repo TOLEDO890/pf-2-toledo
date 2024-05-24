@@ -6,6 +6,11 @@ import { FormBuilder } from '@angular/forms';
 import { IUser } from './models/index';
 import { AlumnoDialogoComponent } from './alumno-dialogo/alumno-dialogo.component';
 import { SharedModule } from '../../../../shared/shared.module';
+import { EffectsModule } from '@ngrx/effects';
+import { AlumnoEffects } from './store/alumno.effects';
+import { StoreModule } from '@ngrx/store';
+import { alumnoFeature } from './store/alumno.reducer';
+
 
 
 
@@ -17,9 +22,9 @@ import { SharedModule } from '../../../../shared/shared.module';
   imports: [
     CommonModule,
     AlumnosRoutingModule,
-    SharedModule
-
-    
+    SharedModule,
+    EffectsModule.forFeature([AlumnoEffects])  ,
+    StoreModule.forFeature(alumnoFeature)
   ],
   exports :[
     AlumnosComponent,

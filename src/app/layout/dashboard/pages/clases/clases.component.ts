@@ -2,7 +2,11 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ClaseDialogoComponent } from './clase-dialog/clase-dialog.component';
 import { IClase } from './models/index';
-import { clases } from './clases.service'; 
+import { ClasesService } from './clases.service';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { ClaseActions } from './store/clase.actions';
+import { selectorloadclases } from './store/clase.selectors';
 
 @Component({
   selector: 'app-clases',
@@ -10,10 +14,19 @@ import { clases } from './clases.service';
   styleUrls: ['./clases.component.scss']
 })
 export class ClasesComponent {
-  clases: IClase[] = clases; 
+  clases : IClase[] | undefined;
+  clases$: Observable<IClase[]> ; 
   displayedColumns: string[] = ['id', 'nombre', 'profesor', 'horario', 'actions'];
-
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog ,private store :Store , private ClasesService : ClasesService) {
+    this.clases$ = this.store.select(selectorloadclases)
+  }
+  ngOnInit(): void {
+    this.store.dispatch(
+      ClaseActions.loadClases()
+        )
+    
+  }
+ 
 
   openDialog(clase?: IClase): void {
     const dialogRef = this.dialog.open(ClaseDialogoComponent, {
@@ -24,25 +37,28 @@ export class ClasesComponent {
     dialogRef.afterClosed().subscribe((result: IClase) => {
       if (result) {
         if (clase) {
-          this.clases = this.clases.map(c => (c.id === result.id ? { ...result } : c));
+          
+          this.ClasesService.actualizarclase(result);
         } else {
-          result.id = this.getNextId();
-          this.clases.push(result);
+      
+          this.ClasesService.agregarClase(result);
         }
+       
+        this.clases$ = this.ClasesService.getclases();
       }
     });
   }
 
-  onDeleteClase(id: number): void {
-    if (confirm('¿Estás seguro de que quieres eliminar esta clase?')) {
-      this.clases = this.clases.filter(clase => clase.id !== id);
+  onDeleteclase(id: number): void {
+    if (confirm('¿Estás seguro de que quieres eliminar este curso?')) {
+    
+      this.ClasesService.eliminarClase(id);
+ 
+      this.clases$ = this.ClasesService.getclases();
     }
   }
-
-  getNextId(): number {
-    return this.clases.length > 0 ? Math.max(...this.clases.map(clase => clase.id)) + 1 : 1;
-  }
 }
+
 
   
 

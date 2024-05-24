@@ -5,6 +5,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ClasesComponent } from './clases.component';
 import { ClaseDialogoComponent } from "./clase-dialog/clase-dialog.component";
+import { EffectsModule } from '@ngrx/effects';
+import { ClaseEffects } from './store/clase.effects';
+import { claseFeature } from './store/clase.reducer';
+import { StoreModule } from '@ngrx/store';
 
 
 
@@ -17,7 +21,9 @@ import { ClaseDialogoComponent } from "./clase-dialog/clase-dialog.component";
     CommonModule,
     MatIconModule,
     SharedModule,
-    ClasesRoutingModule
+    ClasesRoutingModule,
+    EffectsModule.forFeature([ClaseEffects]),
+    StoreModule.forFeature(claseFeature)
   ]
 })
 export class ClasesModule { }

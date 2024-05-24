@@ -8,8 +8,8 @@ import { environment } from '../../../environments/environment.development';
   providedIn: 'root'
 })
 export class UserServiceService {
-  private apiUrl = environment.apiURL;
-
+  private apiUrl = `${environment.apiURL}/users`;
+ public apiurlspect =`${environment.apiURL}/users`;
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<IUser[]> {

@@ -1,13 +1,12 @@
-
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { IUser } from '../models/index';
-import {MatInputModule} from '@angular/material/input';
+import { IUser, UserRole } from '../models/index';
+
 @Component({
   selector: 'app-alumno-dialogo',
   templateUrl: './alumno-dialogo.component.html',
-  styleUrl: './alumno-dialogo.component.scss'
+  styleUrls: ['./alumno-dialogo.component.scss']
 })
 export class AlumnoDialogoComponent {
   userForm: FormGroup;
@@ -18,21 +17,15 @@ export class AlumnoDialogoComponent {
     @Inject(MAT_DIALOG_DATA) private editingUser?: IUser
   ) {
     this.userForm = this.formBuilder.group({
-      Nombre: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern('^[a-zA-ZÁÉÍÓÚáéíóúñÑ]+$'),
-          
-        ],
-      ],
-      Apellido: [
-        '',
-        [Validators.required, Validators.pattern('^[a-zA-ZÁÉÍÓÚáéíóúñÑ]+$')],
-      ],
-     
-   
-      role: ['USER', [Validators.required]],
+      id: [null],
+      Clase: ['', [Validators.required]],
+      Nombre: ['', [Validators.required, Validators.pattern('^[a-zA-ZÁÉÍÓÚáéíóúñÑ]+$')]],
+      Apellido: ['', [Validators.required, Validators.pattern('^[a-zA-ZÁÉÍÓÚáéíóúñÑ]+$')]],
+      role: ['alumno', [Validators.required]],
+      Edad: [null, [Validators.required, Validators.min(0)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      token: ['']
     });
 
     if (editingUser) {
@@ -47,15 +40,15 @@ export class AlumnoDialogoComponent {
   get ApellidoControl() {
     return this.userForm.get('Apellido');
   }
+
   get EdadControl() {
-    return this.userForm.get('Edad')
+    return this.userForm.get('Edad');
   }
 
   onSave(): void {
     if (this.userForm.invalid) {
       this.userForm.markAllAsTouched();
     } else {
-      
       this.matDialogRef.close(this.userForm.value);
     }
   }

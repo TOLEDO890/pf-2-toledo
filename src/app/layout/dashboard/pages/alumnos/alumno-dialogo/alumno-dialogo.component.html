@@ -1,70 +1,81 @@
 <h2 mat-dialog-title>Crear usuario</h2>
 <div mat-dialog-content>
-
   <form [formGroup]="userForm">
     <div class="row">
       <div class="col-6">
         <mat-form-field class="w-100 p-2" appearance="fill">
-          <mat-label title="">Nombre</mat-label>
+          <mat-label>Nombre</mat-label>
           <input formControlName="Nombre" matInput placeholder="Ingrese su nombre" />
-      
-          <mat-error>{{
-           NombreControl?.errors 
-          }}</mat-error>
+          <mat-error *ngIf="userForm.get('Nombre')?.invalid && userForm.get('Nombre')?.touched">
+            {{ userForm.get('Nombre')?.hasError('required') ? 'El nombre es requerido' : '' }}
+            {{ userForm.get('Nombre')?.hasError('pattern') ? 'Nombre inválido' : '' }}
+          </mat-error>
         </mat-form-field>
       </div>
       <div class="col-6">
         <mat-form-field class="w-100 p-2" appearance="fill">
           <mat-label>Apellido</mat-label>
           <input formControlName="Apellido" matInput placeholder="Ingrese su apellido" />
-          <mat-error>{{
-            ApellidoControl?.errors 
-          }}</mat-error>
+          <mat-error *ngIf="userForm.get('Apellido')?.invalid && userForm.get('Apellido')?.touched">
+            {{ userForm.get('Apellido')?.hasError('required') ? 'El apellido es requerido' : '' }}
+            {{ userForm.get('Apellido')?.hasError('pattern') ? 'Apellido inválido' : '' }}
+          </mat-error>
         </mat-form-field>
       </div>
       <div class="col-8">
         <mat-form-field class="w-100 p-2" appearance="fill">
-          <mat-label>clase</mat-label>
+          <mat-label>Clase</mat-label>
           <input formControlName="Clase" matInput placeholder="Ingrese la clase del usuario" />
-          <mat-error>{{
-            userForm.get("Clase")?.errors 
-          }}</mat-error>
+          <mat-error *ngIf="userForm.get('Clase')?.invalid && userForm.get('Clase')?.touched">
+            {{ userForm.get('Clase')?.hasError('required') ? 'La clase es requerida' : '' }}
+          </mat-error>
         </mat-form-field>
       </div>
       <div class="col-6">
         <mat-form-field class="w-100 p-2" appearance="fill">
-          <mat-label title="Edad del usuario">Edad</mat-label>
+          <mat-label>Edad</mat-label>
           <input formControlName="Edad" matInput type="number" placeholder="Ingrese la edad del usuario" />
-          <mat-error>{{ userForm.get("Edad")?.errors }}</mat-error>
+          <mat-error *ngIf="userForm.get('Edad')?.invalid && userForm.get('Edad')?.touched">
+            {{ userForm.get('Edad')?.hasError('required') ? 'La edad es requerida' : '' }}
+            {{ userForm.get('Edad')?.hasError('min') ? 'Edad inválida' : '' }}
+          </mat-error>
         </mat-form-field>
       </div>
       <div class="col-6">
         <mat-form-field class="w-100 p-2" appearance="fill">
-          <mat-label title="Nombre de héroe del usuario">Nombre de Héroe</mat-label>
-          <input formControlName="NombreDeHeroe" matInput placeholder="Ingrese el nombre de héroe del usuario" />
-          <mat-error>{{ userForm.get("NombreDeHeroe")?.errors }}</mat-error>
+          <mat-label>Email</mat-label>
+          <input formControlName="email" matInput type="email" placeholder="Ingrese el email del usuario" />
+          <mat-error *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+            {{ userForm.get('email')?.hasError('required') ? 'El email es requerido' : '' }}
+            {{ userForm.get('email')?.hasError('email') ? 'Email inválido' : '' }}
+          </mat-error>
         </mat-form-field>
       </div>
       <div class="col-6">
         <mat-form-field class="w-100 p-2" appearance="fill">
-          <mat-label title="Don del usuario">Don</mat-label>
-          <input formControlName="Don" matInput placeholder="Ingrese el Don del usuario" />
-          <mat-error>{{ userForm.get("Don")?.errors }}</mat-error>
+          <mat-label>Contraseña</mat-label>
+          <input formControlName="password" matInput type="password" placeholder="Ingrese la contraseña del usuario" />
+          <mat-error *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched">
+            {{ userForm.get('password')?.hasError('required') ? 'La contraseña es requerida' : '' }}
+            {{ userForm.get('password')?.hasError('minlength') ? 'La contraseña debe tener al menos 6 caracteres' : '' }}
+          </mat-error>
         </mat-form-field>
       </div>
       <div class="col-4">
         <mat-form-field class="w-100 p-2" appearance="fill">
           <mat-label>Role</mat-label>
           <mat-select formControlName="role">
-            <mat-option value="Profesor">Profesor</mat-option>
-            <mat-option value="Alumno">Alumno</mat-option>
+            <mat-option value="profesor">Profesor</mat-option>
+            <mat-option value="alumno">Alumno</mat-option>
           </mat-select>
+          <mat-error *ngIf="userForm.get('role')?.invalid && userForm.get('role')?.touched">
+            {{ userForm.get('role')?.hasError('required') ? 'El rol es requerido' : '' }}
+          </mat-error>
         </mat-form-field>
       </div>
     </div>
   </form>
 </div>
-
 <div class="d-flex justify-content-end" mat-dialog-actions>
   <button mat-dialog-close mat-button>Cancelar</button>
   <button (click)="onSave()" mat-button>Guardar</button>
