@@ -16,4 +16,7 @@ export class UserServiceService {
     return this.http.get<IUser[]>(this.apiUrl);
   }
   
+  getUserById(id: number | string): Observable<IUser | undefined> {
+    return this.http.get<IUser>(`${environment.apiURL}/users/${id}`);
+  }
 }

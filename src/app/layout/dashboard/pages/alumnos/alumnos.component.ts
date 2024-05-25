@@ -20,7 +20,7 @@ export class AlumnosComponent {
   constructor(private FormBuilder: FormBuilder, private matDialog: MatDialog ,private  alumnosService:UserServiceService , private store : Store) {
     this.users$ =this.store.select(selectusers)
   }
-
+  dataSource: IUser[] = [];
    ngOnInit(): void {
     this.store.dispatch(
       AlumnoActions.loadAlumnos()
@@ -44,6 +44,7 @@ export class AlumnosComponent {
  alumnos: IUser[] = [
  
   ];
+  
 
 
 

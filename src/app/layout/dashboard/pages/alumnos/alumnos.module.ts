@@ -10,6 +10,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AlumnoEffects } from './store/alumno.effects';
 import { StoreModule } from '@ngrx/store';
 import { alumnoFeature } from './store/alumno.reducer';
+import { AlumnosdetailComponent } from './pages/alumnosdetail/alumnosdetail.component';
 
 
 
@@ -17,7 +18,8 @@ import { alumnoFeature } from './store/alumno.reducer';
 @NgModule({
   declarations: [
     AlumnosComponent,
-    AlumnoDialogoComponent
+    AlumnoDialogoComponent,
+    AlumnosdetailComponent
   ],
   imports: [
     CommonModule,
