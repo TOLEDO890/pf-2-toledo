@@ -9,7 +9,10 @@ import { AuthService } from '../../core/service/auth-service.service';
 })
 export class DashboardComponent {
   showFiller = false;
- 
-
+ constructor (private AuthService : AuthService){}
+  onLogout(): void {
+    localStorage.removeItem('token')
+    // Aquí podrías agregar cualquier otra lógica de redireccionamiento o acciones necesarias después del logout
+  }
   
 }
