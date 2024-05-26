@@ -19,4 +19,7 @@ export class UserServiceService {
   getUserById(id: number | string): Observable<IUser | undefined> {
     return this.http.get<IUser>(`${environment.apiURL}/users/${id}`);
   }
+  getuserdetail() : Observable<IUser[]>{
+    return this.http.get<IUser[]>(`${environment.apiURL}/users?_embed=courses`)
+  }
 }

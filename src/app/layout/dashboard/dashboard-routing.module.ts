@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
+import { AlumnosdetailComponent } from './pages/alumnos/pages/alumnosdetail/alumnosdetail.component';
 
 const routes: Routes = [ 
 {path:'clases',
@@ -11,7 +12,9 @@ const routes: Routes = [
 },
 {path:'alumnos',
  loadChildren:() => import ('./pages/alumnos/alumnos.module').then((m)=>m.AlumnosModule)
-}];
+},
+ ];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

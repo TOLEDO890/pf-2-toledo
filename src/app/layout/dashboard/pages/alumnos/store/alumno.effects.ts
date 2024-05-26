@@ -22,6 +22,19 @@ export class AlumnoEffects {
     );
   });
 
+  loadAlumnosdetail$ = createEffect(() => {
+    return this.actions$.pipe(
+
+      ofType(AlumnoActions.loadAlumnosDetail),
+      concatMap(() =>
+        /** An EMPTY observable only emits completion. Replace with your own observable API request */
+        this.UserServiceService.getuserdetail().pipe(
+          map(data => AlumnoActions.loadAlumnosDetailSuccess({ data })),
+          catchError(error => of(AlumnoActions.loadAlumnosDetailFailure({ error }))))
+      )
+    );
+  });
+
 
   constructor(private actions$: Actions, private UserServiceService: UserServiceService) {}
 }

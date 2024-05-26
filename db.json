@@ -10,7 +10,8 @@
         "Clase": "1A",
         "role": "alumno",
         "Edad": 17,
-        "token":"120"
+        "token":"120",
+        "courseid":"1"
       },
        {
         "id": "2",
@@ -21,7 +22,8 @@
         "Clase": "1A",      
         "role": "alumno",
         "Edad": 17,
-        "token":"121"
+        "token":"121",
+        "courseid":"2"
       },
        {
         "id": "3",
@@ -32,7 +34,8 @@
         "Clase": "1A",
         "role": "alumno",
         "Edad": 17,
-        "token":"122"
+        "token":"122",
+        "courseid":"2"
       },
       {
         "id": "4",
@@ -43,7 +46,8 @@
         "Clase": "1A",
         "role": "alumno",
         "Edad": 17,
-        "token":"123"
+        "token":"123",
+        "courseid":"1"
       },
        {
         "id": "5",
@@ -54,7 +58,8 @@
         "Clase": "1A",
         "role": "alumno",
         "Edad": 17,
-        "token":"124"
+        "token":"124",
+        "courseid":"2"
       },
        {
         "id": "6",
@@ -65,7 +70,8 @@
         "Clase": "1A",
         "role": "alumno",
         "Edad": 16,
-        "token":"125"
+        "token":"125",
+        "courseid":"1"
       },
        {
         "id": "7",
@@ -76,7 +82,8 @@
         "Clase": "1A",
         "role": "alumno",
         "Edad": 17,
-        "token":"126"
+        "token":"126",
+        "courseid":"2"
       },
        {
         "id": "8",
@@ -87,7 +94,8 @@
         "Clase": "1A",
         "role": "alumno",
         "Edad": 17,
-        "token":"127"
+        "token":"127",
+        "courseid":"1"
       },
        {
         "id": "9",
@@ -98,7 +106,8 @@
         "Clase": "1A",
         "role": "alumno",
         "Edad": 17,
-        "token":"128"
+        "token":"128",
+        "courseid":"2"
       },
      {
       "id": "10",
@@ -109,7 +118,9 @@
       "Clase": "1A",
       "role": "profesor",
       "Edad": 20,
-      "token":"1"
+      "token":"1",
+      "courseid":"1"
+      
      }
     
     
@@ -136,49 +147,48 @@
   "class": [
     {
         "id": "1",
-        "courseid": "1",
         "nombre": "Clase de Álgebra",
         "descripcion": "Clase que cubre los fundamentos del álgebra",
         "materias": ["Álgebra"]
     },
     {
         "id": "2",
-        "courseid": "1",
+       
         "nombre": "Clase de Cálculo",
         "descripcion": "Clase que cubre los principios básicos del cálculo",
         "materias": ["Cálculo"]
     },
     {
         "id": "3",
-        "courseid": "1",
+       
         "nombre": "Clase de Fundamentos de Ingeniería",
         "descripcion": "Clase que cubre los fundamentos de la ingeniería",
         "materias": ["Fundamentos de Ingeniería"]
     },
     {
         "id": "4",
-        "courseid": "2",
+        
         "nombre": "Clase de Gramática",
         "descripcion": "Clase que cubre los fundamentos de la gramática en inglés",
         "materias": ["Gramática"]
     },
     {
         "id": "5",
-        "courseid": "2",
+        
         "nombre": "Clase de Vocabulario",
         "descripcion": "Clase que enseña vocabulario en inglés",
         "materias": ["Vocabulario"]
     },
     {
         "id": "6",
-        "courseid": "2",
+     
         "nombre": "Clase de Introducción a Python",
         "descripcion": "Clase introductoria a la programación en Python",
         "materias": ["Introducción a Python"]
     },
     {
         "id": "7",
-        "courseid": "2",
+      
         "nombre": "Clase de Programación Orientada a Objetos",
         "descripcion": "Clase que cubre los principios de la programación orientada a objetos",
         "materias": ["Programación Orientada a Objetos"]

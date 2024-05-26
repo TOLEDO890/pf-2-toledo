@@ -7,5 +7,8 @@ export const AlumnoActions = createActionGroup({
     'Load Alumnos': emptyProps(),
     'Load Alumnos Success': props<{ data: IUser[]}>(),
     'Load Alumnos Failure': props<{ error: unknown }>(),
+    'load Alumnos detail ': emptyProps(),
+    'load Alumnos detail success ': props <{data: IUser[]}>(),
+    'load Alumnos detail failure ': props <{error: unknown}>(),
   }
 });

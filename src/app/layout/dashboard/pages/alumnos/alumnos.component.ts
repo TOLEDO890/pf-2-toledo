@@ -77,7 +77,7 @@ export class AlumnosComponent {
 }
 
 // Método para filtrar las propiedades del objeto result
-private filterUserProperties(user: any): IUser {
+private filterUserProperties(user: IUser): IUser {
     const { id, Clase, Nombre, Apellido, role, Edad, email, password, token } = user;
     return { id, Clase, Nombre, Apellido, role, Edad, email, password, token };
 }
